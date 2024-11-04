@@ -1,14 +1,8 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
-import LandingPage from "./pages/LandingPage";
-
+import React from "react";
+import RoutingPages from "./pages/RoutingPages";
 function App() {
   return (
-    <Router>
-      <div>
-        <LandingPage />
-      </div>
-    </Router>
+    <RoutingPages/>
   );
 }
 

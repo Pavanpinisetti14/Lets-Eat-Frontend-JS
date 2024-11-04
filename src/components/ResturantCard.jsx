@@ -53,7 +53,7 @@ function App() {
           ))}
         </div>
       </div>
-      <Outlet />
+      {/* <Outlet /> */}
     </section>
   );
 }
@@ -84,7 +84,7 @@ function RestaurantCard({ imageSrc, title, description, rating }) {
           })}
           <span className="text-gray-600">{rating.toFixed(1)}</span>
         </div>
-        <Link to='kitchens'>
+        <Link to='/kitchens'>
           <button className="px-4 py-2 border border-blue-500 text-blue-500 rounded w-full hover:bg-blue-500 hover:text-slate-100">
             View Details
           </button>
@@ -202,4 +202,19 @@ export default App;
 // }
 
 // export default App;
+// // ResturantCard.jsx
+// import React from 'react';
+// import { Outlet } from 'react-router-dom'; // Add this import
+
+// const ResturantCard = () => {
+//     return (
+//         <div>
+//             {/* Your component code */}
+//             <h1>Restaurant Card</h1>
+//             <Outlet /> {/* This will render the matched child routes */}
+//         </div>
+//     );
+// };
+
+// export default ResturantCard;
 

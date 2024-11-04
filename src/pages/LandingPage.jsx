@@ -16,7 +16,6 @@ const LandingPage = () => {
       <MenuSection />
       <CustomerTestimonials />
       <Footer/>
-      {/* <Kitchen/> */}
       <Outlet />
     </div>
   );
