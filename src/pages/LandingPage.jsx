@@ -10,7 +10,7 @@ import { Outlet } from "react-router-dom";
 const LandingPage = () => {
   return (
     <div className="!scroll-smooth">
-      <Header/>
+      {/* <Header/> */}
       <MainPage />
       <RestaurantCard />
       <MenuSection />

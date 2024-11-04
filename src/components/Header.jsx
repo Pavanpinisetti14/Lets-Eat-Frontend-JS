@@ -311,16 +311,21 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa"; // Import the hamburger icon
 import AccountSettings from "./AccountSettings";
+import { BsCart3 } from "react-icons/bs";
+// import Cart from "./Cart";
 // import "./Common.css";
-const Header = () => {
+const Header = ({cartCount,cartItems}) => {
   const [show, setShow] = useState(false);
-  const [showMenu, setShowMenu] = useState(false); // State for mobile menu
-
+  const [showMenu, setShowMenu] = useState(false);
+  const [showcart, SetShowCart] = useState(false);
   const toggleAccountSettings = () => {
     setShow(!show);
     setShowMenu(false);
   };
-
+  const cartpopup =() =>{
+    SetShowCart(showcart === false? true:false)
+    // SetShowCart(true);
+  }
   const toggleMenu = () => {
     setShowMenu(!showMenu);
     setShow(false);
@@ -344,6 +349,11 @@ const Header = () => {
           <a href="#" className="text-lg font-medium hover:underline underline-offset-4">Cart</a>
         </nav>
         <div className="flex items-center gap-4">
+          <div className="cursor-pointer">
+            <BsCart3 className="w-7 h-7 relative top-3" onClick={cartpopup}/>
+            <span className="relative bottom-8 left-2">{cartItems.length}</span>
+          </div>
+          
           <div className="relative">
             <button
               className="rounded-full focus:outline-none text-3xl"
@@ -383,6 +393,29 @@ const Header = () => {
           </button>
         </div>
       </div>
+      { showcart && (
+            <div className="fixed bg-black bg-opacity-50 inset-0 flex items-center justify-center z-10">
+              <div className="bg-white rounded-lg shadow-lg p-6 w-80">
+                <div>
+                <button 
+                  onClick={() => SetShowCart(false)} // Assuming setShowCart is your state setter
+                  className="float-right"
+                >
+                  X
+                </button>
+                <br></br>
+                <div>
+                <h2>Cart</h2>
+                <ul>
+                  {cartItems.map((item, index) => (
+                    <li key={index}>{item.name} - ${item.price}</li>
+                  ))}
+                </ul>
+                </div>
+                </div>
+              </div>
+          </div>
+          )}
     </header>
   );
 };

@@ -9,7 +9,7 @@ const AppRouter = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                path: "/",
+                index:true,
                 element: <LandingPage />,
             },
             {
